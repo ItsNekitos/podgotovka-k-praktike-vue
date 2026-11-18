@@ -1,9 +1,9 @@
 <template>
     <li><h3>Login</h3></li>
     <li>
-        <input type="text" placeholder="Username" v-model="username" /><br />
-        <p class="red" v-if="errors.username">
-            {{ errors.username.join('. ') }}
+        <input type="text" placeholder="Name" v-model="name" /><br />
+        <p class="red" v-if="errors.name">
+            {{ errors.name.join('. ') }}
         </p>
         <input type="password" placeholder="Password" v-model="password" /><br />
         <p class="red" v-if="errors.password">
@@ -18,7 +18,7 @@ export default {
     props: ['server', 'successUser'],
     data() {
         return {
-            username: null,
+            name: null,
             password: null,
             errors: {},
         };
@@ -26,7 +26,7 @@ export default {
     methods: {
         login() {
             let formdata = new FormData();
-            if (this.username) formdata.append('username', this.username);
+            if (this.name) formdata.append('name', this.name);
             if (this.password) formdata.append('password', this.password);
 
             this.server('login', 'POST', formdata)

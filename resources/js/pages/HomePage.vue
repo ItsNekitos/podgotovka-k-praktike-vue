@@ -1,8 +1,8 @@
 <template>
     <h1>Помещения</h1>
     <div>
-        <template v-for="place in places.data">
-            <PlaceComponent :places="place" :changePage="changePage" :PUBLIC="PUBLIC" />
+        <template v-for="place in places">
+            <PlaceComponent :place="place" :changePage="changePage" :PUBLIC="PUBLIC" />
         </template>
     </div>
 

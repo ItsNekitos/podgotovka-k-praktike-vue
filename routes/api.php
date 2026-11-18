@@ -16,14 +16,10 @@ Route::middleware(['auth:sanctum'])->group(function(){
     Route::post("/postadd", [PlaceController::class, "postadd"]);
     Route::post("/postedit/{post}", [PlaceController::class, "postedit"]);
     Route::post("/comment/{post}", [CommentController::class, "store"]);
-    Route::get("/like/{post}", [PlaceController::class, "store"]);
 });
-Route::get("/post/{post}", [PlaceController::class, "post"]);
-Route::get("/postsUser/{user}", [PlaceController::class, "postsUser"]);
-Route::get("/placesHome", [PlaceController::class, "placesHome"]);
 Route::post("/register", [UserController::class, "register"]);
 Route::post("/login", [UserController::class, "login"]);
-Route::post("/like/{post}", [PlaceController::class, "index"]);
+Route::get("/placesHome", [PlaceController::class, "placesHome"]);
 
 
 

@@ -1,9 +1,10 @@
 <template>
     <div>
-        <HeaderComponent :user="user" :isUser="isUser" :changePage="changePage" :PUBLIC="PUBLIC" />
+        <HeaderComponent :user="user" :isUser="isUser" :logout="logout" :changePage="changePage" :PUBLIC="PUBLIC" />
 
         <template v-if="isLoad">
             <HomePage v-if="page == 'HomePage'" :user="user" :server="server" :changePage="changePage" :PUBLIC="PUBLIC" />
+            <AuthPage v-if="page == 'AuthPage'" :user="user" :server="server" :successUser="successUser" :changePage="changePage" :pageId="pageId" :PUBLIC="PUBLIC" />
             <PostAdd v-if="page == 'PostAdd'" :server="server" :changePage="changePage" :pageId="pageId" :PUBLIC="PUBLIC" />
             <SinglePage v-if="page == 'SinglePage'" :pageId="pageId" :isUser="isUser" :server="server" :changePage="changePage" :PUBLIC="PUBLIC" />
             <UserPage v-if="page == 'UserPage'" :pageId="pageId" :server="server" :changePage="changePage" :PUBLIC="PUBLIC" />
@@ -22,6 +23,7 @@ import HomePage from './pages/HomePage.vue';
 import PostAdd from './pages/PostAdd.vue';
 import SinglePage from './pages/SinglePage.vue';
 import UserPage from './pages/UserPage.vue';
+import AuthPage from './pages/AuthPage.vue';
 
 export default {
     name: 'App',
@@ -43,6 +45,7 @@ export default {
         PostAdd,
         SinglePage,
         UserPage,
+        AuthPage,
     },
     mounted() {
         if (localStorage.getItem('token')) {

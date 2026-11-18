@@ -11,36 +11,44 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
-    public function register(RegRequest $request)
-    {
+    public function register(RegRequest $request){
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
         $user->phone = $request->phone;
         $user->password = $request->password;
+        // $path = Storage::disk("public")->putFile('/avatars', $request->file("avatar"));
+        // $user->avatar = $path;
         $user->save();
-        Auth::login($user);
-        return redirect()->route('homepage');
+        return response()->json(["token"=>$user->createToken('api')->plainTextToken]);
     }
 
-    public function login(AuthRequest $request)
-    {
-        $user = User::where('name', $request->name)->first();
-        if (Hash::check($request->password, $user->password)) {
+    public function login(AuthRequest $request){
+        $user = User::where('username', $request->username)->first();
+
+        if ($user && Hash::check($request->password, $user->password)) {
             Auth::login($user);
-            return redirect()->route('homepage');
+            return response()->json(['token' => $user->createToken('api')->plainTextToken]);
+        } else {
+            return response()->json(['errors' => ["password"=>["Неверный логин или пароль"]]]);
         }
-
-        return back()->withInput()->withErrors(['password' => 'Неверный логин или пароль']);
     }
+
+
     public function logout()
     {
         Auth::logout();
         return redirect()->route('homepage');
     }
+
+
+
+
+    
     public function viewregister()
     {
         return view("register");

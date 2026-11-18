@@ -7,9 +7,14 @@
                     <a href="#" @click.prevent="changePage('HomePage')">Конференции.рф</a>
                 </div>
                 <div class="col-6"></div>
-                <div class="col">
-                    <button type="button" class="btn btn-primary">Войти</button>
-                    <button type="button" class="btn btn-secondary">Регистрация</button>
+                <div class="col" v-if="isUser">
+                    <a href="#" @click.prevent="changePage('UserPage')" type="button" class="btn btn-primary">Кабинет</a>
+                    <a href="" @click.prevent="logout()">Выйти</a>
+                </div>
+                <div class="col" v-else>
+                    <a href="#" @click.prevent="changePage('AuthPage', 'login')" type="button" class="btn btn-primary">Войти</a>
+                    <a href="#" @click.prevent="changePage('AuthPage', 'register')" type="button"
+                        class="btn btn-secondary">Регистрация</a>
                 </div>
             </div>
         </div>
@@ -19,6 +24,6 @@
 <script>
 export default {
     name: 'HeaderComponent',
-    props: ['isUser', 'user', 'changePage', 'PUBLIC'],
+    props: ['isUser', 'user', 'changePage', 'PUBLIC', 'logout'],
 };
 </script>
