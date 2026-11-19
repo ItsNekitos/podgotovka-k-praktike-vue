@@ -2,7 +2,7 @@
     <h1>Помещения</h1>
     <div>
         <template v-for="place in places">
-            <PlaceComponent :place="place" :changePage="changePage" :PUBLIC="PUBLIC" />
+            <PlaceComponent :place="place" :changePage="changePage" :PUBLIC="PUBLIC" :user="user" :isUser="isUser" />
         </template>
     </div>
 
@@ -12,7 +12,7 @@ import PlaceComponent from '@/components/PlaceComponent.vue';
 
 export default {
     name: 'HomePage',
-    props: ['server', 'changePage', 'PUBLIC', 'user'],
+    props: ['server', 'changePage', 'PUBLIC', 'user', 'isUser'],
     components: {
         PlaceComponent,
     },
@@ -26,7 +26,7 @@ export default {
     },
     methods: {
         placesHome() {
-            this.server('placesHome/', 'GET', null, this.user.id)
+            this.server('placesHome/', 'GET', null)
                 .then((result) => {
                     this.places = result.places;
                 })

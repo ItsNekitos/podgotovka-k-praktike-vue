@@ -24,7 +24,7 @@
 <script>
 export default {
     name: 'RegisterComponent',
-    props: ['server', 'successUser'],
+    props: ['server', 'successUser', 'changePage'],
     data() {
         return {
             name: null,
@@ -48,6 +48,7 @@ export default {
                     }
                     if (result.token) {
                         this.successUser(result.token);
+                        this.changePage('HomePage');
                     }
                 })
                 .catch((error) => console.log('error', error));

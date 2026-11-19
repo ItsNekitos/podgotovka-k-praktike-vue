@@ -28,7 +28,7 @@ class UserController extends Controller
     }
 
     public function login(AuthRequest $request){
-        $user = User::where('username', $request->username)->first();
+        $user = User::where('name', $request->name)->first();
 
         if ($user && Hash::check($request->password, $user->password)) {
             Auth::login($user);
@@ -39,35 +39,16 @@ class UserController extends Controller
     }
 
 
-    public function logout()
-    {
-        Auth::logout();
-        return redirect()->route('homepage');
-    }
-
-
 
 
     
-    public function viewregister()
-    {
-        return view("register");
-    }
-       public function viewlogin()
-    {
-        return view("login");
-    }
+
     public function homepage()
     {
         $places = Place::all();
         return view('index', compact('places'));
     }
-    public function userprofileview()
-    {
-        $orders = Order::where("user_id", Auth::id())->get();
-        $comments = Comment::all();
-        return view('userprofile', compact('orders', 'comments'));
-    }
+
     public function adminpanel($page)
     {
         $orders = Order::all();

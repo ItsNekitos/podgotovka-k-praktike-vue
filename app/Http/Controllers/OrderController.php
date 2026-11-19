@@ -15,35 +15,17 @@ use function Laravel\Prompts\alert;
 
 class OrderController extends Controller
 {
-    public function order()
-    {
-        $orders = Order::where("user_id", Auth::id())->get();
-        $comments = Comment::all();
-        return view('userprofile', compact('orders', 'comments'));
-    }
-
-    public function orderform(OrderRequest $request)
-    {
+    public function orderadd(OrderRequest $request){
         $order = new Order();
-
-        $order->user_id = Auth::user()->id;
-        $order->place_name = $request->place_name;
+        $order->user_id = Auth::id();
+        $order->name = $request->name;
         $order->event = $request->event;
         $order->date = $request->date;
         $order->oplata = $request->oplata;
         $order->save();
-        return redirect()->route('order');
+        return response()->json(["id"=>$order->id]);
     }
-    public function orderedit(OrderEditRequest $request, $id)
-    {
-        $order = Order::find($id);
-        $order->status = $request->status;
-        $order->save();
-        return back();
-    }
-    public function orderview()
-    {
-        $places = Place::all();
-        return view("order", compact('places'));
+    public function orderUser(){
+        return ["orders"=>Order::where("user_id", Auth::id())->get()];
     }
 }

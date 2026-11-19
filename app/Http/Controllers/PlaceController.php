@@ -6,45 +6,14 @@ use App\Http\Requests\PlaceCreateRequest;
 use App\Http\Requests\PlaceUpdateRequest;
 use App\Models\Place;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class PlaceController extends Controller
 {
-    public function placeform(PlaceCreateRequest $request)
-    {
-        $place = new Place();
-
-        $place->name = $request->name;
-        $place->desc = $request->desc;
-
-        $path = Storage::disk("public")->putFile('/photos', $request->file("photo"));
-        $place->photo = 'storage/' . $path;
-
-        $place->save();
-        return redirect()->route('adminpanel', ['page' => 'spisok']);
-    }
-    public function placeupdate(PlaceUpdateRequest $request, Place $place)
-    {
-        $place->name = $request->placename;
-        $place->desc = $request->descplace;
-
-        if ($request->photoplace) {
-            $path = Storage::disk("public")->putFile('/photos', $request->file("photoplace"));
-            $place->photo = 'storage/' . $path;
-        }
-
-        $place->save();
-        return redirect()->route('adminpanel', ['page' => 'spisok']);
-    }
-    public function placedelete(Place $placeid)
-    {
-        $placeid->delete();
-        return back();
-    }
-    public function placeview($placeid)
-    {
-        $places = Place::where("id", $placeid)->get();
-        return view("place", compact('places'));
+    public function place($place){
+        $place = Place::findOrFail($place);
+        return response()->json(['place'=>$place]);
     }
     public function placesHome()
     {

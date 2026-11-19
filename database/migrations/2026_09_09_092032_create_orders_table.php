@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
-            $table->string('place_name');
+            $table->string('name');
             $table->string('event');
             $table->dateTime('date');
             $table->enum('oplata', ['nal', 'perevod']);

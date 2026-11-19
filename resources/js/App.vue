@@ -3,11 +3,11 @@
         <HeaderComponent :user="user" :isUser="isUser" :logout="logout" :changePage="changePage" :PUBLIC="PUBLIC" />
 
         <template v-if="isLoad">
-            <HomePage v-if="page == 'HomePage'" :user="user" :server="server" :changePage="changePage" :PUBLIC="PUBLIC" />
+            <HomePage v-if="page == 'HomePage'" :user="user" :isUser="isUser" :server="server" :changePage="changePage" :PUBLIC="PUBLIC" />
             <AuthPage v-if="page == 'AuthPage'" :user="user" :server="server" :successUser="successUser" :changePage="changePage" :pageId="pageId" :PUBLIC="PUBLIC" />
-            <PostAdd v-if="page == 'PostAdd'" :server="server" :changePage="changePage" :pageId="pageId" :PUBLIC="PUBLIC" />
+            <OrderPage v-if="page == 'OrderPage'" :server="server" :changePage="changePage" :pageId="pageId" :PUBLIC="PUBLIC" />
             <SinglePage v-if="page == 'SinglePage'" :pageId="pageId" :isUser="isUser" :server="server" :changePage="changePage" :PUBLIC="PUBLIC" />
-            <UserPage v-if="page == 'UserPage'" :pageId="pageId" :server="server" :changePage="changePage" :PUBLIC="PUBLIC" />
+            <UserPage v-if="page == 'UserPage'" :user="user" :isUser="isUser" :server="server" :changePage="changePage" :PUBLIC="PUBLIC" />
         </template>
         <template v-else>
             <h1>ЗАГРУЗКА...</h1>
@@ -20,7 +20,7 @@
 import FooterComponent from './components/FooterComponent.vue';
 import HeaderComponent from './components/HeaderComponent.vue';
 import HomePage from './pages/HomePage.vue';
-import PostAdd from './pages/PostAdd.vue';
+import OrderPage from './pages/OrderPage.vue';
 import SinglePage from './pages/SinglePage.vue';
 import UserPage from './pages/UserPage.vue';
 import AuthPage from './pages/AuthPage.vue';
@@ -42,7 +42,7 @@ export default {
         HeaderComponent,
         FooterComponent,
         HomePage,
-        PostAdd,
+        OrderPage,
         SinglePage,
         UserPage,
         AuthPage,

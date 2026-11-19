@@ -23,7 +23,7 @@ class OrderRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'place_name'=>'required|min:3',
+            'name'=>'required|min:3',
             'event'=>'required|min:3',
             'date'=>'required',
             'oplata'=>'required',

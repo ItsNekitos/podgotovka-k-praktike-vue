@@ -17,22 +17,5 @@ export default {
         RegisterComponent,
         LoginComponent,
     },
-    data() {
-        return {
-
-        };
-    },
-    mounted() {
-
-    },
-    methods: {
-        placesHome() {
-            this.server('placesHome/', 'GET', null, this.user.id)
-                .then((result) => {
-                    this.places = result.places;
-                })
-                .catch((error) => console.log('error', error));
-        },
-    },
 };
 </script>
