@@ -28,4 +28,14 @@ class OrderController extends Controller
     public function orderUser(){
         return ["orders"=>Order::where("user_id", Auth::id())->get()];
     }
+    public function orderAdmin(){
+        return ["orders"=>Order::all()];
+    }
+
+    public function orderedit(OrderEditRequest $request, Order $order)
+    {
+        $order->status = $request->status;
+        $order->save();
+        return response()->json(["id" => $order->id]);
+    }
 }

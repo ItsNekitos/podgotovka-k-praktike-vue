@@ -7,7 +7,8 @@
             <AuthPage v-if="page == 'AuthPage'" :user="user" :server="server" :successUser="successUser" :changePage="changePage" :pageId="pageId" :PUBLIC="PUBLIC" />
             <OrderPage v-if="page == 'OrderPage'" :server="server" :changePage="changePage" :pageId="pageId" :PUBLIC="PUBLIC" />
             <SinglePage v-if="page == 'SinglePage'" :pageId="pageId" :isUser="isUser" :server="server" :changePage="changePage" :PUBLIC="PUBLIC" />
-            <UserPage v-if="page == 'UserPage'" :user="user" :isUser="isUser" :server="server" :changePage="changePage" :PUBLIC="PUBLIC" />
+            <PlacePage v-if="page == 'PlacePage'" :pageId="pageId" :isUser="isUser" :server="server" :changePage="changePage" :PUBLIC="PUBLIC" />
+            <UserPage v-if="page == 'UserPage'" :user="user" :isUser="isUser" :pageId="pageId" :server="server" :changePage="changePage" :PUBLIC="PUBLIC" />
         </template>
         <template v-else>
             <h1>ЗАГРУЗКА...</h1>
@@ -21,9 +22,10 @@ import FooterComponent from './components/FooterComponent.vue';
 import HeaderComponent from './components/HeaderComponent.vue';
 import HomePage from './pages/HomePage.vue';
 import OrderPage from './pages/OrderPage.vue';
-import SinglePage from './pages/SinglePage.vue';
+import PlacePage from './pages/PlacePage.vue';
 import UserPage from './pages/UserPage.vue';
 import AuthPage from './pages/AuthPage.vue';
+import SinglePage from './pages/SinglePage.vue';
 
 export default {
     name: 'App',
@@ -43,9 +45,10 @@ export default {
         FooterComponent,
         HomePage,
         OrderPage,
-        SinglePage,
+        PlacePage,
         UserPage,
         AuthPage,
+        SinglePage,
     },
     mounted() {
         if (localStorage.getItem('token')) {

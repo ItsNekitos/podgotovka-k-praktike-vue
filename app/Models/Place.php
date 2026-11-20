@@ -12,4 +12,8 @@ class Place extends Model
         'desc',
         'photo',
     ];
+    public function comment()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

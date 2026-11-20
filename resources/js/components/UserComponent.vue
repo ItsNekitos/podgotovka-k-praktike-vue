@@ -8,6 +8,9 @@
                 <li class="list-group-item">{{ value.oplata }}</li>
                 <li class="list-group-item">{{ value.status }}</li>
             </ul>
+            <div v-if="value.status =='done'">
+                <a href="#" @click.prevent="changePage('AuthPage')" type="button" class="btn btn-primary">Оставить отзыв</a>
+            </div>
         </div>
     </article>
 </template>

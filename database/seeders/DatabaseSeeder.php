@@ -26,12 +26,12 @@ class DatabaseSeeder extends Seeder
         Place::create([
             "name"=>"Маленький зал для конференций",
             "desc"=>"Небольшой и удобный зал для проведения ваших конференций",
-            "photo"=>"photos/JhvSiyzO0jDOh2ayf7MAUVJ9sPINHNIyooodIvgn.jpg"
+            "photo"=>"photos/cot7LLOlnPm9KbPeNWDQnTWQTLji4rwpX5XUdt9E.jpg"
         ]);
         Place::create([
             "name"=>"Средний зал для конференций",
             "desc"=>"Просторный и удобный зал для проведения ваших конференций",
-            "photo"=>"photos/ZLmEc7BJtDMNBXtMEr9kni2UHvjCowISTg8yTtzi.jpg"
+            "photo"=>"photos/cot7LLOlnPm9KbPeNWDQnTWQTLji4rwpX5XUdt9E.jpg"
         ]);
     }
 }

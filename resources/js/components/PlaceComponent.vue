@@ -6,6 +6,7 @@
                 <h4 class="card-title">{{ place.name }}</h4>
                 <p class="card-text">{{ place.desc }}</p>
                 <a v-if="isUser && user.role != 'admin'" href="#" @click.prevent="changePage('OrderPage', place.id)" type="button" class="btn btn-primary">Заказать</a>
+                <a href="#" @click.prevent="changePage('SinglePage', place.id)" type="button" class="btn btn-primary">Посмотреть</a>
             </div>
         </div>
     </article>

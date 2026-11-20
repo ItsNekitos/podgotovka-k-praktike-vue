@@ -9,9 +9,9 @@ class Comment extends Model
     protected $fillable = [
         'description',
     ];
-    public function order()
+    public function place()
     {
-        return $this->belongsTo(Order::class);
+        return $this->belongsTo(Place::class);
     }
     public function user()
     {

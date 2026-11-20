@@ -15,6 +15,12 @@ Route::middleware(['auth:sanctum'])->group(function(){
     });
     Route::post("/orderadd", [OrderController::class, "orderadd"]);
     Route::get("/orderUser", [OrderController::class, "orderUser"]);
+    Route::get("/orderAdmin", [OrderController::class, "orderAdmin"]);
+    Route::post("/orderedit/{order}", [OrderController::class, "orderedit"]);
+    Route::post("/placeadd", [PlaceController::class, "placeadd"]);
+    Route::delete("/placedelete/{place}", [PlaceController::class, "placedelete"]);
+    Route::post("/placeedit/{place}", [PlaceController::class, "placeedit"]);
+    Route::post("/comment/{place}", [CommentController::class, "comment"]);
 });
 Route::post("/register", [UserController::class, "register"]);
 Route::post("/login", [UserController::class, "login"]);

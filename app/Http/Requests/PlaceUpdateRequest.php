@@ -23,8 +23,8 @@ class PlaceUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'placename'=>'required|min:3',
-            'descplace'=>'required|min:3',
+            'name'=>'required|min:3',
+            'desc'=>'required|min:3',
         ];
     }
 }

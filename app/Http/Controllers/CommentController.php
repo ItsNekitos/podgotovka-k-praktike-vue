@@ -5,23 +5,19 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CommentRequest;
 use App\Models\Comment;
 use App\Models\Order;
+use App\Models\Place;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
-    public function comment(CommentRequest $request, $id)
+    public function comment(CommentRequest $request, Place $place)
     {
         $comment = new Comment();
-        $comment->order_id = $id;
-        $comment->user_id = Auth::user()->id;
-        $comment->description = $request->description;
+        $comment->user_id = Auth::id();
+        $comment->place_id = $place->id;
+        $comment->comment = $request->comment;
         $comment->save();
-        return back();
-    }
-    public function commentview($orderid)
-    {
-        $orders = Order::where("id", $orderid)->get();
-        return view("comment", compact('orders'));
+        return response()->json(["message"=>"ok"]);
     }
 }
