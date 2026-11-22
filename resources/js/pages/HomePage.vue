@@ -1,9 +1,12 @@
 <template>
-    <h1>Помещения</h1>
-    <div>
-        <template v-for="place in places">
-            <PlaceComponent :place="place" :changePage="changePage" :PUBLIC="PUBLIC" :user="user" :isUser="isUser" />
-        </template>
+    <div style="width: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; background-color: #f8f9fa;">
+        <h1 style="margin-top: 40px; margin-bottom: 40px;">Помещения</h1>
+        <div style="width: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+            <template v-for="place in places">
+                <PlaceComponent :place="place" :changePage="changePage" :PUBLIC="PUBLIC" :user="user"
+                    :isUser="isUser" />
+            </template>
+        </div>
     </div>
 
 </template>

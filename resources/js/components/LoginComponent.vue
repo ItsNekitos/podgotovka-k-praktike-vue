@@ -1,16 +1,27 @@
 <template>
-    <li><h3>Login</h3></li>
-    <li>
-        <input type="text" placeholder="Name" v-model="name" /><br />
-        <p class="red" v-if="errors.name">
-            {{ errors.name.join('. ') }}
-        </p>
-        <input type="password" placeholder="Password" v-model="password" /><br />
-        <p class="red" v-if="errors.password">
-            {{ errors.password.join('. ') }}
-        </p>
-        <button type="submit" @click="login" class="button big fit">Войти</button>
-    </li>
+    <div style="width: 100%; height:700px; display:flex; flex-direction: column; align-items: center; justify-content: center;">
+        <div style="margin-bottom: 25px; margin-top: 25px;">
+            <h1>Вход в аккаунт</h1>
+        </div>
+        <div style="width:70%;">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Имя аккаунта</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    v-model="name">
+            </div>
+            <p class="red" v-if="errors.name">
+                {{ errors.name.join('. ') }}
+            </p>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Пароль</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" v-model="password">
+            </div>
+            <p class="red" v-if="errors.password">
+                {{ errors.password.join('. ') }}
+            </p>
+            <button type="submit" @click="login" class="btn btn-primary">Отправить</button>
+        </div>
+    </div>
 </template>
 <script>
 export default {

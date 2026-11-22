@@ -14,7 +14,7 @@
             <h1>ЗАГРУЗКА...</h1>
         </template>
     </div>
-    <FooterComponent />
+    <FooterComponent :PUBLIC="PUBLIC"/>
 </template>
 
 <script>
@@ -83,6 +83,7 @@ export default {
             this.user = {};
             this.isUser = false;
             this.isLoad = true;
+            this.changePage('HomePage');
         },
         async server(route, method = 'GET', formdata = null, userid = null) {
             let myHeaders = new Headers();

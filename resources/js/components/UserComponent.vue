@@ -1,18 +1,40 @@
 <template>
-    <article class="comment" v-for="value in orders">
-        <div class="contains-inline">
-            <ul class="list-group md:list-group-horizontal">
-                <li class="list-group-item">{{ value.name }}</li>
-                <li class="list-group-item">{{ value.event }}</li>
-                <li class="list-group-item">{{ value.date }}</li>
-                <li class="list-group-item">{{ value.oplata }}</li>
-                <li class="list-group-item">{{ value.status }}</li>
-            </ul>
-            <div v-if="value.status =='done'">
-                <a href="#" @click.prevent="changePage('AuthPage')" type="button" class="btn btn-primary">Оставить отзыв</a>
-            </div>
+    <div
+        style="width: 100%; display:flex; flex-direction: column; align-items: center; justify-content: center;">
+        <div style="margin-bottom: 25px; margin-top: 25px;">
+            <h1>Список заказов</h1>
         </div>
-    </article>
+        <div style="width: 80%; margin-bottom: 20px;">
+            <article class="comment" v-for="value in orders">
+                <div class="contains-inline" style="margin-bottom: 20px;">
+                    <ul class="list-unstyled row text-center fw-bold m-0">
+                        <li class="col border p-2">Помещение</li>
+                        <li class="col border p-2">Мероприятие</li>
+                        <li class="col border p-2">Дата</li>
+                        <li class="col border p-2">Оплата</li>
+                        <li class="col border p-2">Статус</li>
+                    </ul>
+                    <ul class="list-unstyled row text-center m-0">
+                        <li class="col border p-2">{{ value.name }}</li>
+                        <li class="col border p-2">{{ value.event }}</li>
+                        <li class="col border p-2">{{ value.date }}</li>
+                        <li v-if="value.oplata == 'nal'" class="col border p-2">Наличными</li>
+                        <li v-else class="col border p-2">По карте</li>
+
+                        <li v-if="value.status == 'new'" class="col border p-2">Новое</li>
+                        <li v-if="value.status == 'in_process'" class="col border p-2">Мероприятие назначено</li>
+                        <li v-if="value.status == 'done'" class="col border p-2">
+                            <p>Завершено</p>
+                            <a href="#" @click.prevent="changePage('SinglePage', value.id)" type="button"
+                            class="btn btn-primary">Оставить
+                            отзыв</a>
+                        </li>
+                        <li v-if="value.status == 'canceled'" class="col border p-2">Отменен</li>
+                    </ul>
+                </div>
+            </article>
+        </div>
+    </div>
 </template>
 
 

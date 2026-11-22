@@ -1,27 +1,42 @@
 <template>
-    <div id="main">
-        <p>{{ place.name }}</p>
-        <p>{{ place.desc }}</p>
-        <img :src="PUBLIC + place.photo" alt="" />
+    <div id="main" v-if="place" style="display: flex; align-items: center; flex-direction: column; margin-top: 20px;">
+        <div class="card mb-3" style="width: 75%;">
+            <img :src="PUBLIC + place.photo" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{ place.name }}</h5>
+                <p class="card-text">{{ place.desc }}</p>
+            </div>
+        </div>
 
-        <!-- Comments -->
-        <div class="post" id="countblock">
-            <section class="comments" v-if="isUser">
-                <h3>Comments</h3>
+
+
+        <div style="width: 75%;">
+            <section class="comments" v-if="isUser" style="margin-bottom: 20px;">
+                <h3>Отзывы</h3>
                 <div>
-                    <textarea v-model="comment"></textarea><br />
+                    <div class="mb-2">
+                        <textarea class="form-control" id="commentText" rows="3" placeholder="Напишите текст..."
+                            v-model="comment"></textarea>
+                    </div>
                     <p class="red" v-if="errors.comment">
                         {{ errors.comment.join('. ') }}
                     </p>
-                    <button type="button" @click="addComment" class="button big fit">Добавить комментарий</button>
+                    <button type="button" @click="addComment" class="btn btn-primary">Добавить отзыв</button>
                 </div>
             </section>
-            <article class="comment" v-for="value in comments">
-                <div class="comment-autor">
-                    <p>{{ value.user.name }}</p>
+
+            <div class="card mb-3">
+                <div class="card-body">
+                    <article class="comment" v-for="value in comments">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <div class="d-flex align-items-center gap-2">
+                                <h4>{{ value.user.name }}</h4>
+                            </div>
+                        </div>
+                        <p class="card-text mb-2" style="margin-left: 10px;">{{ value.comment }}</p>
+                    </article>
                 </div>
-                <p>{{ value.comment }}</p>
-            </article>
+            </div>
         </div>
     </div>
 </template>
@@ -58,7 +73,7 @@ export default {
                         this.errors = result.errors;
                     } else {
                         this.getPlace();
-                        this.comment='';
+                        this.comment = '';
                     }
                 })
                 .catch((error) => console.log('error', error));

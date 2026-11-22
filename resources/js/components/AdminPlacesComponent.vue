@@ -1,16 +1,25 @@
 <template>
-    <p>dsdsd</p>
-    <article class="comment" v-for="value in places">
-        <div class="contains-inline">
-            <ul class="list-group md:list-group-horizontal">
-                <li class="list-group-item">{{ value.name }}</li>
-                <li class="list-group-item">{{ value.desc }}</li>
-                <img :src="PUBLIC + value.photo" class="card-img-start" alt="...">
-                <a href="#" @click.prevent="changePage('PlacePage', value.id)" type="button" class="btn btn-primary">Редактировать место</a>
-                <button type="button" @click="placedelete(value.id)" class="button big fit">Удалить место</button>
-            </ul>
+    <div
+        style="width: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; background-color: #f8f9fa;">
+        <h1 style="margin-top: 40px; margin-bottom: 40px;">Помещения</h1>
+        <div style="width: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+            <div style="margin:20px;">
+                <article v-for="value in places">
+                    <div class="card card-row" style="max-width: 1040px; margin-bottom: 20px;">
+                        <img :src="PUBLIC + value.photo" class="card-img-start" alt="...">
+                        <div class="card-body">
+                            <h4 class="card-title">{{ value.name }}</h4>
+                            <p class="card-text">{{ value.desc }}</p>
+                            <a href="#" @click.prevent="changePage('PlacePage', value.id)" type="button"
+                                class="btn btn-primary" style="margin-right: 10px;">Редактировать место</a>
+                            <button type="button" @click="placedelete(value.id)" class="btn"
+                                style="background-color: red; color: white;">Удалить место</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
         </div>
-    </article>
+    </div>
 </template>
 
 

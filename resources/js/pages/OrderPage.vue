@@ -1,24 +1,36 @@
 <template>
-    <!-- Main -->
-    <div id="main">
-        <!-- Post -->
-        <article class="post">
+    <div
+        style="width: 100%; height:700px; display:flex; flex-direction: column; align-items: center; justify-content: center; margin: 20px;">
+        <div style="margin-bottom: 25px; margin-top: 25px;">
             <h1>Сделать заказ</h1>
-            <input type="text" v-model="name" placeholder="Post name" /><br />
+        </div>
+        <div style="width:70%;">
+            <div class="mb-3">
+                <label for="disabledInput" class="form-label">Название помещения</label>
+                <input type="text" class="form-control" id="disabledInput" aria-describedby="emailHelp"
+                    v-model="name" disabled>
+            </div>
             <p class="red" v-if="errors.name">
                 {{ errors.name.join('. ') }}
             </p>
-            <input type="text" v-model="event" placeholder="Event" /><br />
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Название вашего мероприятия</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    v-model="event">
+            </div>
             <p class="red" v-if="errors.event">
                 {{ errors.event.join('. ') }}
             </p>
-            <input type="datetime-local" v-model="date">
+            <div class="mb-3">
+                <label for="eventDate" class="form-label">Дата</label>
+                <input type="date" class="form-control" id="eventDate" name="date" v-model="date">
+            </div>
             <p class="red" v-if="errors.date">
                 {{ errors.date.join('. ') }}
             </p>
             <div class="mb-3">
-                <label>Способ оплаты</label>
-                <select name="oplata" v-model="oplata">
+                <label for="categorySelect" class="form-label">Способ оплаты</label>
+                <select class="form-select" id="categorySelect" name="oplata" v-model="oplata">
                     <option value="nal">Наличные</option>
                     <option value="perevod">По карте</option>
                 </select>
@@ -26,8 +38,8 @@
             <p class="red" v-if="errors.oplata">
                 {{ errors.oplata.join('. ') }}
             </p>
-            <button type="button" @click="orderadd" class="button big fit">Заказать</button>
-        </article>
+            <button type="button" @click="orderadd" class="btn btn-primary">Заказать</button>
+        </div>
     </div>
 </template>
 <script>
