@@ -25,18 +25,19 @@
                 </div>
             </section>
 
-            <div class="card mb-3">
-                <div class="card-body">
-                    <article class="comment" v-for="value in comments">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
+            <article class="comment" v-for="value in comments">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-2">ds
                             <div class="d-flex align-items-center gap-2">
                                 <h4>{{ value.user.name }}</h4>
                             </div>
                         </div>
                         <p class="card-text mb-2" style="margin-left: 10px;">{{ value.comment }}</p>
-                    </article>
+
+                    </div>
                 </div>
-            </div>
+            </article>
         </div>
     </div>
 </template>
