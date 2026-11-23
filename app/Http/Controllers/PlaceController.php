@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PlaceCreateRequest;
 use App\Http\Requests\PlaceUpdateRequest;
 use App\Models\Comment;
+use App\Models\Order;
 use App\Models\Place;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,7 +17,8 @@ class PlaceController extends Controller
     {
         $place = Place::findOrFail($place);
         $comments = Comment::where("place_id", $place->id)->with('user')->get();
-        return response()->json(['place' => $place, 'comments' => $comments]);
+        $user_order = Order::where("user_id", Auth::id())->where("place_id",$place->id)->get();
+        return response()->json(['place' => $place, 'comments' => $comments, 'user_order' => $user_order]);
     }
     public function placesHome()
     {

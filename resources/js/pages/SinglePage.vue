@@ -8,7 +8,7 @@
             </div>
         </div>
 
-
+        <p>{{ this.user_order }}</p>
 
         <div style="width: 75%;">
             <section class="comments" v-if="isUser" style="margin-bottom: 20px;">
@@ -49,6 +49,7 @@ export default {
             place: null,
             comments: [],
             comment: null,
+            user_order: null,
             errors: {},
         };
     },
@@ -60,6 +61,7 @@ export default {
             this.server('place/' + this.pageId)
                 .then((result) => {
                     this.place = result.place;
+                    this.user_order = result.user_order;
                     this.comments = result.comments;
                 })
                 .catch((error) => console.log('error', error));

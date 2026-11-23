@@ -13,7 +13,7 @@ Route::middleware(['auth:sanctum'])->group(function(){
     Route::get('/user', function(Request $request){
         return $request->user();
     });
-    Route::post("/orderadd", [OrderController::class, "orderadd"]);
+    Route::post("/orderadd/{place}", [OrderController::class, "orderadd"]);
     Route::get("/orderUser", [OrderController::class, "orderUser"]);
     Route::get("/orderAdmin", [OrderController::class, "orderAdmin"]);
     Route::post("/orderedit/{order}", [OrderController::class, "orderedit"]);

@@ -15,9 +15,10 @@ use function Laravel\Prompts\alert;
 
 class OrderController extends Controller
 {
-    public function orderadd(OrderRequest $request){
+    public function orderadd(OrderRequest $request, Place $place){
         $order = new Order();
         $order->user_id = Auth::id();
+        $order->place_id = $place->id;
         $order->name = $request->name;
         $order->event = $request->event;
         $order->date = $request->date;

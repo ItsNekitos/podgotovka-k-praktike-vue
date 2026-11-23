@@ -76,7 +76,7 @@ export default {
             if (this.event) formdata.append('event', this.event);
             if (this.date) formdata.append('date', this.date);
             if (this.oplata) formdata.append('oplata', this.oplata);
-            this.server('orderadd', 'POST', formdata)
+            this.server('orderadd/'+this.pageId, 'POST', formdata)
                 .then((result) => {
                     if (result.errors) {
                         this.errors = result.errors;
