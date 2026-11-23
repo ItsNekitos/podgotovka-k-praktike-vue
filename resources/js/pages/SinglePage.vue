@@ -18,7 +18,7 @@
                         <textarea class="form-control" id="commentText" rows="3" placeholder="Напишите текст..."
                             v-model="comment"></textarea>
                     </div>
-                    <p class="red" v-if="errors.comment">
+                    <p style="height: 40px; display:flex; align-items: center; padding: 10px; background-color: rgb(255, 100, 100); color: white; border:solid 1px; border-radius:5px; border-color:red;" v-if="errors.comment">
                         {{ errors.comment.join('. ') }}
                     </p>
                     <button type="button" @click="addComment" class="btn btn-primary">Добавить отзыв</button>

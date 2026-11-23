@@ -10,7 +10,7 @@
                 <input type="text" class="form-control" id="disabledInput" aria-describedby="emailHelp"
                     v-model="name" disabled>
             </div>
-            <p class="red" v-if="errors.name">
+            <p style="height: 40px; display:flex; align-items: center; padding: 10px; background-color: rgb(255, 100, 100); color: white; border:solid 1px; border-radius:5px; border-color:red;" v-if="errors.name">
                 {{ errors.name.join('. ') }}
             </p>
             <div class="mb-3">
@@ -18,14 +18,14 @@
                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                     v-model="event">
             </div>
-            <p class="red" v-if="errors.event">
+            <p style="height: 40px; display:flex; align-items: center; padding: 10px; background-color: rgb(255, 100, 100); color: white; border:solid 1px; border-radius:5px; border-color:red;" v-if="errors.event">
                 {{ errors.event.join('. ') }}
             </p>
             <div class="mb-3">
                 <label for="eventDate" class="form-label">Дата</label>
-                <input type="date" class="form-control" id="eventDate" name="date" v-model="date">
+                <input type="datetime-local" class="form-control" id="eventDate" name="date" v-model="date">
             </div>
-            <p class="red" v-if="errors.date">
+            <p style="height: 40px; display:flex; align-items: center; padding: 10px; background-color: rgb(255, 100, 100); color: white; border:solid 1px; border-radius:5px; border-color:red;" v-if="errors.date">
                 {{ errors.date.join('. ') }}
             </p>
             <div class="mb-3">
@@ -35,7 +35,7 @@
                     <option value="perevod">По карте</option>
                 </select>
             </div>
-            <p class="red" v-if="errors.oplata">
+            <p style="height: 40px; display:flex; align-items: center; padding: 10px; background-color: rgb(255, 100, 100); color: white; border:solid 1px; border-radius:5px; border-color:red;" v-if="errors.oplata">
                 {{ errors.oplata.join('. ') }}
             </p>
             <button type="button" @click="orderadd" class="btn btn-primary">Заказать</button>

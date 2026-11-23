@@ -1,54 +1,28 @@
 <template>
-    <!-- <div id="main">
-        <article class="post">
-            <h1>{{ pageId ? 'Редактировать' : 'Добавить' }} место</h1>
-            <input type="text" v-model="name" placeholder="Post name" />
-            <p class="red" v-if="errors.name">
-                {{ errors.name.join('. ') }}
-            </p>
-            <input type="text" v-model="desc" placeholder="desc" />
-            <p class="red" v-if="errors.desc">
-                {{ errors.desc.join('. ') }}
-            </p>
-
-            <input type="file" id="photo" />
-            <p class="red" v-if="errors.photo">
-                {{ errors.photo.join('. ') }}
-            </p>
-            <button type="button" @click="pageadd" class="button big fit">{{ pageId ? 'Редактировать' : 'Добавить' }}
-                место</button>
-        </article>
-        <div v-if="pageId">
-            <img :src="PUBLIC + photo" alt="" />
-        </div>
-    </div> -->
-
-
-
     <div style="width: 100%; display:flex; flex-direction: column; align-items: center; justify-content: center;">
         <div style="margin-bottom: 100px; margin-top: 25px;">
             <h1>{{ pageId ? 'Редактировать' : 'Добавить' }} место</h1>
         </div>
         <div style="width:70%; margin-bottom: 20px;">
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Название места</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                <label for="exampleInputName1" class="form-label">Название места</label>
+                <input type="text" class="form-control" id="exampleInputName1" aria-describedby="emailHelp"
                     v-model="name">
             </div>
-            <p class="red" v-if="errors.name">
+            <p style="height: 40px; display:flex; align-items: center; padding: 10px; background-color: rgb(255, 100, 100); color: white; border:solid 1px; border-radius:5px; border-color:red;" v-if="errors.name">
                 {{ errors.name.join('. ') }}
             </p>
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Описание</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" v-model="desc">
+                <label for="exampleInputDesc1" class="form-label">Описание</label>
+                <input type="text" class="form-control" id="exampleInputDesc1" v-model="desc">
             </div>
-            <p class="red" v-if="errors.desc">
+            <p style="height: 40px; display:flex; align-items: center; padding: 10px; background-color: rgb(255, 100, 100); color: white; border:solid 1px; border-radius:5px; border-color:red;" v-if="errors.desc">
                 {{ errors.desc.join('. ') }}
             </p>
             <div class="mb-3">
                 <input type="file" id="photo" />
             </div>
-            <p class="red" v-if="errors.photo">
+            <p style="height: 40px; display:flex; align-items: center; padding: 10px; background-color: rgb(255, 100, 100); color: white; border:solid 1px; border-radius:5px; border-color:red;" v-if="errors.photo">
                 {{ errors.photo.join('. ') }}
             </p>
             <button type="button" @click="pageadd" class="btn btn-primary">{{ pageId ? 'Редактировать' : 'Добавить' }}
@@ -101,6 +75,7 @@ export default {
                     }
 
                     if (result.id) {
+                        alert(this.pageId ? 'Конфепенц-зал успешно отредактирован' : 'Конфепенц-зал успешно создан');
                         this.changePage('UserPage', 'places');
                     }
                 })

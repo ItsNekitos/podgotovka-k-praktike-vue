@@ -9,17 +9,17 @@
                 <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                     v-model="name">
             </div>
-            <p class="red" v-if="errors.name">
+            <p style="height: 40px; display:flex; align-items: center; padding: 10px; background-color: rgb(255, 100, 100); color: white; border:solid 1px; border-radius:5px; border-color:red;" v-if="errors.name">
                 {{ errors.name.join('. ') }}
             </p>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Пароль</label>
                 <input type="password" class="form-control" id="exampleInputPassword1" v-model="password">
             </div>
-            <p class="red" v-if="errors.password">
+            <p style="height: 40px; display:flex; align-items: center; padding: 10px; background-color: rgb(255, 100, 100); color: white; border:solid 1px; border-radius:5px; border-color:red;" v-if="errors.password">
                 {{ errors.password.join('. ') }}
             </p>
-            <button type="submit" @click="login" class="btn btn-primary">Отправить</button>
+            <button type="submit" @click="login" class="btn btn-primary">Войти</button>
         </div>
     </div>
 </template>

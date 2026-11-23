@@ -1,29 +1,4 @@
 <template>
-    <!-- <article class="comment" v-for="value in orders">
-        <div class="contains-inline">
-            <ul class="list-group md:list-group-horizontal">
-                <li class="list-group-item">{{ value.name }}</li>
-                <li class="list-group-item">{{ value.event }}</li>
-                <li class="list-group-item">{{ value.date }}</li>
-                <li class="list-group-item">{{ value.oplata }}</li>
-                <li class="list-group-item zstatus" style="display: flex; flex-direction: column;">
-                    <select id="" name="status" v-model="value.status">
-                        <option value="in_process">Мероприятие назначено</option>
-                        <option value="new">Новое</option>
-                        <option value="done">Завершено</option>
-                        <option value="canceled">Отменено</option>
-                    </select>
-                </li>
-                <li>
-                    <button type="button" @click="orderedit(value.id, value.status)" class="button big fit">Редактировать заказ</button>
-                </li>
-            </ul>
-        </div>
-    </article> -->
-
-
-
-
     <div style="width: 100%; display:flex; flex-direction: column; align-items: center; justify-content: center;">
         <div style="margin-bottom: 25px; margin-top: 25px;">
             <h1>Список заказов</h1>
@@ -99,6 +74,7 @@ export default {
 
                     if (result.id) {
                         this.changePage('UserPage', 'orders');
+                        alert("Статус заказа изменён.");
                     }
                 })
                 .catch((error) => console.log('error', error));

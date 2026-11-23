@@ -24,7 +24,6 @@
 
 
 <script>
-
 export default {
     name: 'AdminPlacesComponent',
     props: ['changePage', 'PUBLIC', 'user', 'server'],
@@ -51,6 +50,7 @@ export default {
                         this.errors = result.errors;
                     } else {
                         this.placesAdmin();
+                        alert("Конференц-зал удалён.");
                     }
                 })
                 .catch((error) => console.log('error', error));
