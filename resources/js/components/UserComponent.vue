@@ -62,7 +62,7 @@ export default {
         dateNormalno(date){
             let date1 = date.split('T');
             let date2= date1[0].split('-')
-            let datenorm = date2[2] + '-' + date2[1] + '-' + date2[0] + ' ' + date1[1];
+            let datenorm = date2[2] + '.' + date2[1] + '.' + date2[0] + ' ' + date1[1];
             return(datenorm);
         },
     },
