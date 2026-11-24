@@ -8,8 +8,6 @@
             </div>
         </div>
 
-        <p>{{ this.user_order }}</p>
-
         <div style="width: 75%;">
             <section class="comments" v-if="isUser" style="margin-bottom: 20px;">
                 <h3>Отзывы</h3>
@@ -43,7 +41,7 @@
 <script>
 export default {
     name: 'SinglePage',
-    props: ['pageId', 'server', 'PUBLIC', 'changePage', 'isUser'],
+    props: ['pageId', 'server', 'PUBLIC', 'changePage', 'isUser', 'user'],
     data() {
         return {
             place: null,

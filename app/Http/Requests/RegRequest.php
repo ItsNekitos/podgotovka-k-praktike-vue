@@ -25,7 +25,7 @@ class RegRequest extends FormRequest
         return [
             'name'=>'required|min:3|unique:users',
             'email'=>'required|min:3|email|unique:users',
-            'phone'=>'required|min:16|max:16',
+            'phone'=>'required|min:11|max:11',
             'password'=>'required|min:3'
         ];
     }

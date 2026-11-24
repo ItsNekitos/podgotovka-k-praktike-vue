@@ -25,7 +25,7 @@
                         <li v-if="value.status == 'in_process'" class="col border p-2">Мероприятие назначено</li>
                         <li v-if="value.status == 'done'" class="col border p-2">
                             <p>Завершено</p>
-                            <a href="#" @click.prevent="changePage('SinglePage', value.id)" type="button"
+                            <a href="#" @click.prevent="changePage('SinglePage', value.place_id)" type="button"
                             class="btn btn-primary">Оставить
                             отзыв</a>
                         </li>

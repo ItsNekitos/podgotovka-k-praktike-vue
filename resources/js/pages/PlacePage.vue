@@ -75,7 +75,7 @@ export default {
                     }
 
                     if (result.id) {
-                        alert(this.pageId ? 'Конфепенц-зал успешно отредактирован' : 'Конфепенц-зал успешно создан');
+                        alert(this.pageId ? 'Конференц-зал успешно отредактирован' : 'Конференц-зал успешно создан');
                         this.changePage('UserPage', 'places');
                     }
                 })

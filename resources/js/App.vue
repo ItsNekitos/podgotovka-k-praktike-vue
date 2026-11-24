@@ -6,7 +6,7 @@
             <HomePage v-if="page == 'HomePage'" :user="user" :isUser="isUser" :server="server" :changePage="changePage" :PUBLIC="PUBLIC" />
             <AuthPage v-if="page == 'AuthPage'" :user="user" :server="server" :successUser="successUser" :changePage="changePage" :pageId="pageId" :PUBLIC="PUBLIC" />
             <OrderPage v-if="page == 'OrderPage'" :server="server" :changePage="changePage" :pageId="pageId" :PUBLIC="PUBLIC" />
-            <SinglePage v-if="page == 'SinglePage'" :pageId="pageId" :isUser="isUser" :server="server" :changePage="changePage" :PUBLIC="PUBLIC" />
+            <SinglePage v-if="page == 'SinglePage'" :pageId="pageId" :isUser="isUser" :user="user" :server="server" :changePage="changePage" :PUBLIC="PUBLIC" />
             <PlacePage v-if="page == 'PlacePage'" :pageId="pageId" :isUser="isUser" :server="server" :changePage="changePage" :PUBLIC="PUBLIC" />
             <UserPage v-if="page == 'UserPage'" :user="user" :isUser="isUser" :pageId="pageId" :server="server" :changePage="changePage" :PUBLIC="PUBLIC" />
         </template>

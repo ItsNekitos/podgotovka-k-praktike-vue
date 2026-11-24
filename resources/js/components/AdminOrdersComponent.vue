@@ -17,7 +17,7 @@
                     <ul class="list-unstyled row text-center m-0">
                         <li class="col border p-2">{{ value.name }}</li>
                         <li class="col border p-2">{{ value.event }}</li>
-                        <li class="col border p-2">{{ value.date }}</li>
+                        <li class="col border p-2">{{ dateNormalno(value.date) }}</li>
                         <li v-if="value.oplata == 'nal'" class="col border p-2">Наличными</li>
                         <li v-else class="col border p-2">По карте</li>
 
@@ -78,6 +78,12 @@ export default {
                     }
                 })
                 .catch((error) => console.log('error', error));
+        },
+        dateNormalno(date){
+            let date1 = date.split('T');
+            let date2= date1[0].split('-')
+            let datenorm = date2[2] + '.' + date2[1] + '.' + date2[0] + ' ' + date1[1];
+            return(datenorm);
         },
     },
 };

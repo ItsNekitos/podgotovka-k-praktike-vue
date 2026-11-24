@@ -17,8 +17,8 @@ class PlaceController extends Controller
     {
         $place = Place::findOrFail($place);
         $comments = Comment::where("place_id", $place->id)->with('user')->get();
-        $user_order = Order::where("user_id", Auth::id())->where("place_id",$place->id)->get();
-        return response()->json(['place' => $place, 'comments' => $comments, 'user_order' => $user_order]);
+        // $user_order = Order::where("place_id",$place->id)->where('status', 'done')->get();
+        return response()->json(['place' => $place, 'comments' => $comments]);
     }
     public function placesHome()
     {

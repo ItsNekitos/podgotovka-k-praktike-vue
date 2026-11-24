@@ -5,8 +5,8 @@
         </div>
         <div style="width:70%;">
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Имя аккаунта</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                <label for="exampleInputName1" class="form-label">Имя аккаунта</label>
+                <input type="text" class="form-control" id="exampleInputName1" aria-describedby="emailHelp"
                     v-model="name">
             </div>
             <p style="height: 40px; display:flex; align-items: center; padding: 10px; background-color: rgb(255, 100, 100); color: white; border:solid 1px; border-radius:5px; border-color:red;" v-if="errors.name">
@@ -21,8 +21,8 @@
                 {{ errors.email.join('. ') }}
             </p>
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Номер телефона</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                <label for="exampleInputPhone1" class="form-label">Номер телефона</label>
+                <input type="text" class="form-control" id="exampleInputPhone1" aria-describedby="emailHelp"
                     v-model="phone">
             </div>
             <p style="height: 40px; display:flex; align-items: center; padding: 10px; background-color: rgb(255, 100, 100); color: white; border:solid 1px; border-radius:5px; border-color:red;" v-if="errors.phone">

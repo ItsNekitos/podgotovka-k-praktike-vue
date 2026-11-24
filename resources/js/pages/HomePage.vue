@@ -1,6 +1,6 @@
 <template>
     <div style="width: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; background-color: #f8f9fa;">
-        <h1 style="margin-top: 40px; margin-bottom: 40px;">Помещения</h1>
+        <h1 style="margin-top: 40px; margin-bottom: 40px;">Конференц-залы</h1>
         <div style="width: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
             <template v-for="place in places">
                 <PlaceComponent :place="place" :changePage="changePage" :PUBLIC="PUBLIC" :user="user"
